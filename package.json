@@ -1,0 +1,62 @@
+{
+  "name": "frst-cli",
+  "version": "0.1.0",
+  "description": "A cli tool.",
+  "private": true,
+  "author": "Eric Cheng",
+  "license": "MIT",
+  "bin": {
+    "frst": "bin/frst.js"
+  },
+  "files": ["bin"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ericteen/frst-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ericteen/frst-cli/issues"
+  },
+  "homepage": "https://github.com/vuejs/vite/tree/master/#readme",
+  "scripts": {
+    "lint": "eslint --fix lib/**/*.js bin/*",
+    "precommit": "lint-staged"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "lib/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "bin/*": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "chalk": "^4.0.0",
+    "chalk-pipe": "^3.0.0",
+    "commander": "^5.1.0",
+    "didyoumean": "^1.2.1",
+    "download-git-repo": "^3.0.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "fs-extra": "^9.0.0",
+    "inquirer": "^7.1.0",
+    "log-symbols": "^3.0.0",
+    "ora": "^4.0.4",
+    "semver": "^7.3.2",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "devDependencies": {
+    "lint-staged": "^10.1.7",
+    "prettier": "^2.0.5",
+    "yorkie": "^2.0.0"
+  }
+}
