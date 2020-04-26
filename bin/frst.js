@@ -1,11 +1,12 @@
-#! usr/bin/env node
+#!/usr/bin/env node
 
-const chalk = require('chalk');
-const semver = require('semver');
-const requiredVersion = require('../package.json').engines.node;
-const didYouMean = require('didyoumean');
-const { Command } = require('commander');
-const { version } = require('../package.json');
+const chalk = require('chalk')
+const semver = require('semver')
+const requiredVersion = require('../package.json').engines.node
+const didYouMean = require('didyoumean')
+const { Command } = require('commander')
+const { version } = require('../package.json')
+const enhanceErrorMessages = require('../lib/util/enhanceErrorMessages')
 
 didYouMean.threshold = 0.6
 
@@ -21,24 +22,24 @@ function checkNodeVersion (wanted, id) {
 
 checkNodeVersion(requiredVersion, 'frst-cli')
 
-const program = new Command();
+const program = new Command()
 
 program
   .version(version)
-  .usage('<command> [options]');
+  .usage('<command> [options]')
 
 program
   .command('create <app-name>')
   .description('Create a project with template')
   .action((name, cmd) => {
-    require('../lib/create')(name);
+    require('../lib/create')(name)
   })
 
 program.on('--help', () => {
   console.log()
   console.log(`Run ${chalk.cyan('frst <command> --help')} for detailed usage of given command.`)
   console.log()
-});
+})
 
 program
   .arguments('<command>')
@@ -48,8 +49,6 @@ program
     console.log()
     suggestCommands(cmd)
   })
-
-const enhanceErrorMessages = require('../lib/util/enhanceErrorMessages')
 
 enhanceErrorMessages('missingArgument', argName => {
   return `Missing required argument ${chalk.yellow(`<${argName}>`)}.`
@@ -65,10 +64,10 @@ enhanceErrorMessages('optionMissingArgument', (option, flag) => {
   )
 })
 
-program.parse(process.argv);
+program.parse(process.argv)
 
 if (!process.argv.slice(2).length) {
-  program.outputHelp();
+  program.outputHelp()
 }
 
 function suggestCommands (cmd) {
@@ -78,6 +77,6 @@ function suggestCommands (cmd) {
 
   const suggestion = didYouMean(cmd, availableCommands)
   if (suggestion) {
-    console.log(chalk.red(`Did you mean ${chalk.yellow(suggestion)}?`));
+    console.log(chalk.red(`Did you mean ${chalk.yellow(suggestion)}?`))
   }
 }

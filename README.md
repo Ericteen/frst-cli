@@ -5,7 +5,7 @@
 ## Getting Started
 
 ```bash
-$ npx frst create <project-name>
+$ npx frst-cli create <project-name>
 $ cd <project-name>
 $ npm install
 $ npm run dev
@@ -14,10 +14,17 @@ $ npm run dev
 or Yarn:
 
 ```bash
-$ yarn create frst create <project-name>
+$ yarn create frst-cli create <project-name>
 $ cd <project-name>
 $ yarn
 $ yarn run dev
+```
+
+or add globally:
+
+```bash
+$ npm install -g frst-cli
+$ frst create <project-name>
 ```
 
 ## Customization
