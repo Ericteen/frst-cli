@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/Ericteen/frst-cli/issues"
   },
-  "homepage": "https://github.com/vuejs/vite/tree/master/#readme",
+  "homepage": "https://github.com/Ericteen/frst-cli",
   "scripts": {
     "lint": "eslint --fix lib/**/*.js bin/*"
   },
